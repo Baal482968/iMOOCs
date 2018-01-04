@@ -7,22 +7,47 @@ export const store = new Vuex.Store({
   strict: true,
   state: {
     usersProfile: {
+      uid: '',
       name: 'Albert Einstein',
+      username: '',
+      password: '',
       position: 'Mathematics expert',
+      gender: '',
       email: 'baal482968@gmail.com',
       picAddr: 'https://pbs.twimg.com/media/BmB3-oeCUAAO7M6.jpg',
-      introduction: 'Albert Einstein was a German-born theoretical physicist. Einstein developed the theory of relativity, one of the two pillars of modern physics. Einstein\'s work is also known for its influence on the philosophy of science.'
+      education: '',
+      introduction: 'Albert Einstein was a German-born theoretical physicist. Einstein developed the theory of relativity, one of the two pillars of modern physics. Einstein\'s work is also known for its influence on the philosophy of science.',
+      status: {
+        complete: [],
+        learning: []
+      },
+      timestamp: ''
     },
-    catalog: [
-      { id: 'a', name: 'Data Base', img: 'http://www.dbta.com/Images/Default.aspx?ImageID=19031' },
-      { id: 'b', name: 'System Analysis Design', img: 'http://slideplayer.com/slide/8102272/25/images/1/Systems+Analysis+and+Design.jpg' },
-      { id: 'c', name: 'Software Engineering' },
-      { id: 'd', name: 'Jami' }
+    courses: [
+      {
+        cid: 'c', 
+        c_name: 'Software Engineering', 
+        c_img:'', 
+        c_viedo: {  
+          v_id:'', 
+          v_name:'', 
+          v_url:''
+        },
+        c_brief:'', 
+        c_teacher:'', 
+        c_college:'', 
+        c_department:'', 
+        c_classes:{
+          cls_id: '', 
+          cls_name: '', 
+          cls_content: '', 
+          cls_url: '', 
+          cls_img: '', 
+          cls_comment: '', 
+          cls_timestamp: ''
+        }
+      },
     ],
-    video: {
-      name: 'Scientist',
-      url: 'https://www.youtube.com/embed/wmVq66yaPV4'
-    },
     allCourses: [
       { cid: '1', name: 'DataBase', content: 'A database is an organized collection of data. A relational database, more restrictively, is a collection of schemas, tables, queries, reports, views, and other elements.', img: 'http://www.dbta.com/Images/Default.aspx?ImageID=19031', url: 'https://www.youtube.com/embed/v=1kiCrKr3tw0&list=PLz7Y9Eb5_2q87p84bXA4e-LEWumrDNQo5&t=1391s&index=1' },
       { cid: '2', name: 'Python', content: 'Python is a widely used high-level programming language for general-purpose programming, created by Guido van Rossum and first released in 1991', img: 'http://dashh.in/wp-content/uploads/2017/03/the-python-programming-language-explained.gif', url: 'https://www.youtube.com/embed/v=hEduupc3G8g&list=PLz7Y9Eb5_2q87p84bXA4e-LEWumrDNQo5&index=2' },
