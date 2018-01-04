@@ -2,7 +2,7 @@
   <div>
     <h1>All courses</h1>
     <div>
-    <b-form-input v-model="text1"
+    <b-form-input v-model="search"
                   type="text"
                   placeholder="Find the courses you want"></b-form-input>
     </div>
@@ -37,12 +37,14 @@
 export default {
   data () {
     return {
-      text1: ''
+      search: ''
     }
   },
   computed: {
     allCourses () {
-      return this.$store.state.allCourses
+      return this.$store.state.allCourses.filter((course) => {
+        return course.name.match(this.search)
+      })
     }
   }
 }

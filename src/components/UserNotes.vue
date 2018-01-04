@@ -38,9 +38,10 @@ body {
 }
 
 #toolbar {
-  float: left;
-  width: 80px;
+  float: top;
+  width: 100%;
   height: 100%;
+  margin-bottom: 1em;
   background-color: #30414D;
   color: #767676;
   padding: 35px 25px 25px 25px;

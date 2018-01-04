@@ -25,31 +25,40 @@ export const store = new Vuex.Store({
     },
     courses: [
       {
-        cid: 'c', 
+        cid: '0', 
         c_name: 'Software Engineering', 
-        c_img:'', 
+        c_img:'https://www.sindhidunya.com/wp-content/uploads/2017/08/dsec_blog_1.jpg', 
         c_viedo: {  
-          v_id:'', 
-          v_name:'', 
-          v_url:''
+          v_id:'0', 
+          v_name:'What is Software Engineering', 
+          v_url:'https://www.youtube.com/embed/v=1kiCrKr3tw0&list=PLz7Y9Eb5_2q87p84bXA4e-LEWumrDNQo5&t=1391s&index=1'
         },
-        c_brief:'', 
-        c_teacher:'', 
-        c_college:'', 
-        c_department:'', 
-        c_classes:{
-          cls_id: '', 
-          cls_name: '', 
-          cls_content: '', 
-          cls_url: '', 
-          cls_img: '', 
-          cls_comment: '', 
+        c_brief:'Software Engineering is the application of engineering to the development of software in a systematic method.', 
+        c_teacher:'Jian Hung Chen', 
+        c_college:'National Chi Nan University', 
+        c_department:'Information Management', 
+        c_classes:[{
+          cls_id: '0', 
+          cls_name: 'SE_00', 
+          cls_content: 'Introduction for Software Engineering course', 
+          cls_url: 'https://www.youtube.com/embed/v=1kiCrKr3tw0&list=PLz7Y9Eb5_2q87p84bXA4e-LEWumrDNQo5&t=1391s&index=1', 
+          cls_img: 'https://sites.google.com/site/softwengi/_/rsrc/1472784254602/home/tagcloudsoftwareengineering4.png', 
+          cls_comment: [{
+            uid: '0',
+            content:'This is awesome'
+          }], 
           cls_timestamp: ''
-        }
+        }]
       },
     ],
     allCourses: [
-      { cid: '1', name: 'DataBase', content: 'A database is an organized collection of data. A relational database, more restrictively, is a collection of schemas, tables, queries, reports, views, and other elements.', img: 'http://www.dbta.com/Images/Default.aspx?ImageID=19031', url: 'https://www.youtube.com/embed/v=1kiCrKr3tw0&list=PLz7Y9Eb5_2q87p84bXA4e-LEWumrDNQo5&t=1391s&index=1' },
+      { 
+        cid: '1', 
+        name: 'DataBase', 
+        content: 'A database is an organized collection of data. A relational database, more restrictively, is a collection of schemas, tables, queries, reports, views, and other elements.', 
+        img: 'http://www.dbta.com/Images/Default.aspx?ImageID=19031', 
+        url: 'https://www.youtube.com/embed/v=1kiCrKr3tw0&list=PLz7Y9Eb5_2q87p84bXA4e-LEWumrDNQo5&t=1391s&index=1' 
+      },
       { cid: '2', name: 'Python', content: 'Python is a widely used high-level programming language for general-purpose programming, created by Guido van Rossum and first released in 1991', img: 'http://dashh.in/wp-content/uploads/2017/03/the-python-programming-language-explained.gif', url: 'https://www.youtube.com/embed/v=hEduupc3G8g&list=PLz7Y9Eb5_2q87p84bXA4e-LEWumrDNQo5&index=2' },
       { cid: '3', name: 'SAD', content: 'It is a process of planning a new business system or replacing an existing system by defining its components or modules to satisfy the specific requirements. Before planning, you need to understand the old system thoroughly and determine how computers can best be used in order to operate efficiently.', img: 'http://slideplayer.com/slide/8102272/25/images/1/Systems+Analysis+and+Design.jpg', url: 'https://www.youtube.com/embed/v=zwJw1geTW8I&list=PLz7Y9Eb5_2q8nVhzLM_NwnuTUO_ik-EBZ&index=1' },
       { cid: '4', name: 'Java', content: 'Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible', img: 'https://fossbytes.com/wp-content/uploads/2017/09/Why-is-Java-the-best-programming-Language.png', url: 'https://www.youtube.com/embed/v=mImRI_I6GJc&index=2&list=PLz7Y9Eb5_2q8nVhzLM_NwnuTUO_ik-EBZ' },
