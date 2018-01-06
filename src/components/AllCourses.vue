@@ -9,19 +9,19 @@
     <div>
       <ol>
         <li v-for="course in allCourses">
-            <b-card :title="course.name"
-            :img-src="course.img"
+            <b-card :title="course.c_name"
+            :img-src="course.c_img"
             img-alt="Image"
             img-top
             tag="article"
             style="max-width: 50rem;"
             class="mb-6">
             <p class="card-text">
-            {{course.content}}
+            {{course.c_brief}}
             </p>
             <b-embed type="iframe"
             aspect="16by9"
-            :src="course.url"
+            :src="course.c_video.v_url"
             allowfullscreen
             ></b-embed>
             <b-button href="#" variant="primary">Like</b-button>
@@ -37,17 +37,25 @@
 export default {
   data () {
     return {
-      search: ''
+      search: '',
+      Courses: []
     }
   },
   computed: {
     allCourses () {
-      return this.$store.state.allCourses.filter((course) => {
-        return course.name.match(this.search)
+      //  return this.$store.state.allCourses.filter((course) => {
+      //    return course.name.match(this.search)
+      //  })
+      fetch('https://hidden-crag-31172.herokuapp.com/courses')
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+        this.Courses = json
       })
     }
   }
 }
+
 </script>
 
 <style lang="css">
