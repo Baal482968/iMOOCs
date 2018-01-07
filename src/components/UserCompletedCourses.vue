@@ -37,4 +37,8 @@ export default {
 </script>
 
 <style lang="css">
+h1{
+  margin-bottom: 3%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 </style>

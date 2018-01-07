@@ -24,8 +24,8 @@
             :src="course.c_video.v_url"
             allowfullscreen
             ></b-embed>
-            <b-button href="#" variant="primary">Like</b-button>
-            <b-button href="#" variant="primary">Unlike</b-button>
+            <b-button href="#" variant="primary">Comment</b-button>
+            <b-button href="#" variant="primary">Rate</b-button>
             </b-card>
         </li>
       </ol>
@@ -41,16 +41,18 @@ export default {
       Courses: []
     }
   },
-  computed: {
-    allCourses () {
-      //  return this.$store.state.allCourses.filter((course) => {
-      //    return course.name.match(this.search)
-      //  })
-      fetch('https://hidden-crag-31172.herokuapp.com/courses')
+  created () {
+    fetch('https://hidden-crag-31172.herokuapp.com/courses')
       .then(response => response.json())
       .then(json => {
         console.log(json)
         this.Courses = json
+      })
+  },
+  computed: {
+    allCourses () {
+      return this.Courses.filter((course) => {
+        return course.c_name.match(this.search)
       })
     }
   }

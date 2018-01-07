@@ -15,6 +15,14 @@
 
 <script>
 export default {
+  created () {
+    fetch('https://hidden-crag-31172.herokuapp.com/users')
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+        this.Courses = json
+      })
+  },
   computed: {
     usersProfile () {
       return this.$store.state.usersProfile

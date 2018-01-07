@@ -2,7 +2,7 @@
   <div>
     <!-- Tabs with card integration -->
     <b-card no-body id="body">
-      <b-tabs small card ref="tabs" class="mx-auto w-75 col-md-6 col-xs-12" id="tabs">
+      <b-tabs small card ref="tabs" class="mx-auto w-75 col-md-7 col-xs-12" id="tabs">
         <b-tab title="My Info">
           <user-info></user-info>
         </b-tab>
@@ -15,8 +15,11 @@
         <b-tab title="My Notes">
           <user-notes></user-notes>
         </b-tab>
-        <b-tab title="All courses">
+        <b-tab title="All Courses">
           <all-courses></all-courses>
+        </b-tab>
+        <b-tab title="Add Courses">
+          <add-courses></add-courses>
         </b-tab>
       </b-tabs>
     </b-card>
@@ -29,6 +32,7 @@ import UserLearningCourses from './UserLearningCourses.vue'
 import UserCompletedCourses from './UserCompletedCourses.vue'
 import UserNotes from './UserNotes.vue'
 import AllCourses from './AllCourses.vue'
+import AddCourses from './AddCourses.vue'
 
 export default {
   components: {
@@ -36,7 +40,8 @@ export default {
     'user-learning-courses': UserLearningCourses,
     'user-completed-courses': UserCompletedCourses,
     'user-notes': UserNotes,
-    'all-courses': AllCourses
+    'all-courses': AllCourses,
+    'add-courses': AddCourses
   },
   computed: {
     usersProfile () {
