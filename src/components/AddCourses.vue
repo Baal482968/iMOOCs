@@ -1,16 +1,22 @@
 <template lang="html">
   <div>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group id="exampleInputGroup1"
-                    label="Course Name:"
-                    label-for="exampleInput1"
-                    description="We'll never share your email with anyone else.">
-        <b-form-input id="exampleInput1"
-                      type="email"
-                      v-model="form.email"
+      <b-form-group id="addCourseInputGroup1"
+                    label="Course Information:"
+                    label-for="addcourseInput1"
+                    description="Please enter full name of this course">
+        <b-form-select id="addcourseInput1"
+                      :options="types"
                       required
-                      placeholder="Enter email">
+                      v-model="form.type">
+        </b-form-select>
+        <b-form-input id="addcourseInput2"
+                      type="text"
+                      v-model="form.name"
+                      required
+                      placeholder="Enter Course Name">
         </b-form-input>
+        <b-form-file id="file_input1" v-model="img"></b-form-file>
       </b-form-group>
       <b-form-group id="exampleInputGroup2"
                     label="Your Name:"
@@ -48,14 +54,15 @@ export default {
   data () {
     return {
       form: {
-        email: '',
+        type: '',
         name: '',
         food: null,
         checked: []
       },
-      foods: [
-        { text: 'Select One', value: null },
-        'Carrots', 'Beans', 'Tomatoes', 'Corn'
+      img: '',
+      types: [
+        { text: 'Select type', value: null },
+        'Data Base', 'System Analysis Design', 'System Engineering', 'Python'
       ],
       show: true
     }
