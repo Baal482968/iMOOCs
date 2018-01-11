@@ -43,11 +43,11 @@ export default {
   },
   created () {
     fetch('https://hidden-crag-31172.herokuapp.com/courses')
-      .then(response => response.json())
-      .then(json => {
-        console.log(json)
-        this.Courses = json
-      })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      this.Courses = json
+    })
   },
   computed: {
     allCourses () {
