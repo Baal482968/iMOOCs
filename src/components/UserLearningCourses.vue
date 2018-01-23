@@ -28,10 +28,19 @@
 
 <script>
 export default {
-  computed: {
-    learningCourses () {
-      return this.$store.state.learningCourses
+  data () {
+    return {
+      search: '',
+      learningCourses: []
     }
+  },
+  created () {
+    fetch('https://hidden-crag-31172.herokuapp.com/courses/:courseId/learning')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      this.Courses = json
+    })
   }
 }
 </script>

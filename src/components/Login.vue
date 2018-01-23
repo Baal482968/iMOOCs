@@ -42,10 +42,6 @@ export default {
       console.log(this.$data)
       fetch('https://hidden-crag-31172.herokuapp.com/auth/signin', {
         method: 'POST', // or 'PUT'
-        // body: JSON.stringify({
-        //   username: this.username,
-        //   password: this.password
-        // }),
         body: JSON.stringify(this.$data),
         headers: new Headers({
           'Content-Type': 'application/json'
