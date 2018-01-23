@@ -52,7 +52,14 @@ export default {
         })
       }).then(res => res.json())
       .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', response))
+      .then(response => {
+        console.log('Success:', response)
+        if (response.message === 'sigin successfully') {
+          window.location.replace('../')
+        } else {
+          alert('Wrong username or password')
+        }
+      })
     }
   }
 }
