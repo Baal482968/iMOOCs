@@ -3,19 +3,19 @@
     <h1>My learning courses</h1>
     <ol>
       <li v-for="course in learningCourses">
-        <b-card :title="course.name"
-          :img-src="course.img"
+        <b-card :title="course.c_name"
+          :img-src="course.c_img"
           img-alt="Image"
           img-top
           tag="article"
           style="max-width: 50rem;"
           class="mb-6">
         <p class="card-text">
-          {{course.content}}
+          {{course.c_brief}}
         </p>
         <b-embed type="iframe"
            aspect="16by9"
-           :src="course.url"
+           :src="course.c_video.v_url"
            allowfullscreen
         ></b-embed>
         <b-button href="#" variant="primary">Like</b-button>
@@ -35,11 +35,11 @@ export default {
     }
   },
   created () {
-    fetch('https://hidden-crag-31172.herokuapp.com/courses/:courseId/learning')
+    fetch('https://hidden-crag-31172.herokuapp.com/learning', {credentials: 'include'})
     .then(response => response.json())
     .then(json => {
       console.log(json)
-      this.Courses = json
+      this.learningCourses = json
     })
   }
 }

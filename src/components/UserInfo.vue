@@ -1,6 +1,6 @@
 <template lang="html">
   <b-card :title="usersProfile.name"
-          :img-src="usersProfile.picAddr"
+          :img-src="usersProfile.picaddr"
           img-alt="Image"
           img-top
           tag="article"
@@ -15,18 +15,19 @@
 
 <script>
 export default {
+  data () {
+    return {
+      usersProfile: ''
+    }
+  },
   created () {
-    fetch('https://hidden-crag-31172.herokuapp.com/users')
+    fetch('https://hidden-crag-31172.herokuapp.com/info', {credentials: 'include'})
       .then(response => response.json())
       .then(json => {
         console.log(json)
-        this.Courses = json
+        console.log('test')
+        this.usersProfile = json
       })
-  },
-  computed: {
-    usersProfile () {
-      return this.$store.state.usersProfile
-    }
   }
 }
 </script>

@@ -53,7 +53,7 @@ export default {
 
 <style lang="css" scoped>
 #body{
-   background: linear-gradient(to right, #8e9eab, #eef2f3); 
+   background: linear-gradient(to right, #8e9eab, #eef2f3);
 }
 #tabs{
    background: linear-gradient(to left, #ece9e6, #ffffff)!important; 

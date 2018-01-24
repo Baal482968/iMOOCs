@@ -24,8 +24,16 @@
             :src="course.c_video.v_url"
             allowfullscreen
             ></b-embed>
-            <b-button href="#" variant="primary">Comment</b-button>
-            <b-button href="#" variant="primary">Rate</b-button>
+            <div>
+              <router-link :to="'course/'+course._id">
+                <b-button variant="warning">Start</b-button>
+              </router-link>
+            </div>
+            <br/>
+            <div>
+              <b-button href="#" variant="primary">Comment</b-button>
+              <b-button href="#" variant="primary">Rate</b-button>
+            </div>
             </b-card>
         </li>
       </ol>
