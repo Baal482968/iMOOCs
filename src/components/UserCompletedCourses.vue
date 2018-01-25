@@ -18,8 +18,6 @@
            :src="course.c_video.v_url"
            allowfullscreen
         ></b-embed>
-        <b-button href="#" variant="primary">Like</b-button>
-        <b-button href="#" variant="primary">Unlike</b-button>
         </b-card>
       </li>
     </ol>

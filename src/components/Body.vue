@@ -6,15 +6,15 @@
         <b-tab title="My Info">
           <user-info></user-info>
         </b-tab>
-        <b-tab title="My Learning Courses">
+        <!-- <b-tab title="My Learning Courses">
           <user-learning-courses></user-learning-courses>
-        </b-tab>
+        </b-tab> -->
         <b-tab title="My Completed Courses">
           <user-completed-courses></user-completed-courses>
         </b-tab>
-        <b-tab title="My Notes">
+        <!-- <b-tab title="My Notes">
           <user-notes></user-notes>
-        </b-tab>
+        </b-tab> -->
         <b-tab title="All Courses">
           <all-courses></all-courses>
         </b-tab>

@@ -84,6 +84,7 @@ export default {
       fetch('https://hidden-crag-31172.herokuapp.com/auth/signup', {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(this.$data),
+        credentials: 'include',
         headers: new Headers({
           'Content-Type': 'application/json'
         })
@@ -91,6 +92,7 @@ export default {
       .catch(error => console.error('Error:', error))
       .then(response => {
         console.log('Success:', response)
+        window.location.replace('../')
       })
     }
   }

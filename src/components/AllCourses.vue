@@ -30,10 +30,6 @@
               </router-link>
             </div>
             <br/>
-            <div>
-              <b-button href="#" variant="primary">Comment</b-button>
-              <b-button href="#" variant="primary">Rate</b-button>
-            </div>
             </b-card>
         </li>
       </ol>

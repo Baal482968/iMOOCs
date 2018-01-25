@@ -2,7 +2,7 @@
   <div>
     <h1>{{this.currentCourses.c_name}}</h1>
     <ol>
-        <li v-for="course in currentCourses.c_classes">
+        <li v-for="course in currentCourses">
             <b-card :title="course.cls_name"
             :img-src="course.cls_img"
             img-alt="Image"
@@ -16,8 +16,7 @@
             allowfullscreen
             ></b-embed>
             <div>
-              <b-button href="#" variant="primary">Comment</b-button>
-              <b-button href="#" variant="primary">Rate</b-button>
+              <user-notes></user-notes>
             </div>
             </b-card>
         </li>
@@ -29,7 +28,12 @@
 </template>
 
 <script>
+import UserNotes from './UserNotes.vue'
+
 export default {
+  components: {
+    'user-notes': UserNotes
+  },
   data () {
     return {
       search: '',
@@ -37,7 +41,7 @@ export default {
     }
   },
   created () {
-    fetch('https://hidden-crag-31172.herokuapp.com/courses/' + this.$route.params._id, {credentials: 'include'})
+    fetch('https://hidden-crag-31172.herokuapp.com/courses/' + this.$route.params._id + '/lessons', {credentials: 'include'})
     .then(response => response.json())
     .then(json => {
       console.log(json)
@@ -50,7 +54,11 @@ export default {
       .then(response => response.json())
       .then(json => {
         console.log(json)
+        window.location.replace('../../')
       })
+    },
+    commit (_id) {
+      fetch('https://hidden-crag-31172.herokuapp.com/lessons/' + _id + '/notes')
     }
   }
 }

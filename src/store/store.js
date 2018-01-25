@@ -10,7 +10,9 @@ export const store = new Vuex.Store({
     allCourses: '',
     learningCourses: '',
     completedCourses: '',
-    notes: ''
+    currentNote: '',
+    login: true,
+    logout: false
   },
   getters: {
         // getSingleProject: (state, getters) => (id) => {
@@ -18,25 +20,21 @@ export const store = new Vuex.Store({
         // }
   },
   mutations: {
-        // addNode: state => {
-        //   state.projectNode.push({
-        //     x:100, y:100, r:40, stroke:'green', strokeWidth:4, fill:'yellow'
-        //   });
-        // }
-        // reducePrice: (state, payload) => {
-        //     state.products.forEach( product => {
-        //         product.price -= payload
-        //     });
-        // }
+      login: state => {
+      state.login = false
+      state.logout = true
+      },
+      logout: state => {
+            state.login = true
+            state.logout = false
+      }
   },
   actions: {
-        // addNode: context => {
-        //   context.commit('addNode');
-        // }
-        // reducePrice: (context, payload) => {
-        //     setTimeout(function(){ // reach out for data
-        //         context.commit('reducePrice', payload);
-        //     }, 2000);
-        // }
+      login: context => {
+      context.commit('login');
+      },
+      logout: context => {
+      context.commit('logout');
+      }
   }
 })

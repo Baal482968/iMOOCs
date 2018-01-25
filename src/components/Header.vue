@@ -1,27 +1,23 @@
 <template lang="html">
   <div id="header">
     <b-row>
-        <b-col>
-          <router-link to="/">
-            <b-img center
-                  src="https://i.imgur.com/6xGSKiP.png"
-                  fluid alt="Responsive image"
-                  id="pic" 
-                  width="400 px"
-            />
-          </router-link>
-        </b-col>
-        <!-- <b-col v-if="login_show == true">
-          <router-link to="/login">
-            <b-button v-on:click="pressLogin">Login</b-button>
-          </router-link>
-        </b-col>
-        <b-col v-if="logout_show == true">
-          <router-link to="/">
-            <b-button v-on:click="pressLogout">Logout</b-button>
-          </router-link>
-        </b-col> -->
+      <b-col>
+        <router-link to="/">
+          <b-img center
+                src="https://i.imgur.com/6xGSKiP.png"
+                fluid alt="Responsive image"
+                id="pic" 
+                width="400 px"
+          />
+        </router-link>
+      </b-col>
     </b-row>
+    <router-link v-if="login_show" to="/login">
+      <b-button v-on:click="pressLogin">Login</b-button>
+    </router-link>
+    <router-link v-if="logout_show" to="/">
+      <b-button v-on:click="pressLogout">Logout</b-button>
+    </router-link>
   </div>
 </template>
 
@@ -29,20 +25,18 @@
 export default {
   data () {
     return {
-      login_show: true,
-      logout_show: false
+      login_show: this.$store.state.login,
+      logout_show: this.$store.state.logout
     }
   },
   methods: {
     pressLogin () {
       console.log('press login')
-      this.login_show = false
-      this.logout_show = true
+      this.$store.dispatch('login')
     },
     pressLogout () {
       console.log('press logout')
-      this.logout_show = false
-      this.login_show = true
+      this.$store.dispatch('logout')
     }
   }
 }

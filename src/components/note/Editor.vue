@@ -14,6 +14,9 @@
                      :max-rows="6">
       </b-form-textarea>
     </div>
+    <div>
+      <b-button size="lg" variant="primary" v-on:click="noteSubmit">Submit</b-button>
+    </div>
   </div>
 </template>
 
@@ -39,6 +42,10 @@ export default {
         { value: 'd', text: 'Other reason', disabled: false }
       ],
       text: ''
+    }
+  },
+  methods: {
+    noteSubmit () {
     }
   }
 }
