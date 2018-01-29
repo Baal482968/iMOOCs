@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
 <b-card bg-variant="light">
-  <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+  <b-form @reset="onReset" v-if="show">
     <b-form-group horizontal
                   breakpoint="lg"
                   label="Add Course"
@@ -55,7 +55,7 @@
         <b-form-radio-group class="pt-2" :options="cls_types" v-model="cls_choosenType" required/>
       </b-form-group>
       <br/>
-      <b-button type="submit" variant="primary" v-if="submit">Submit</b-button>
+      <b-button type="button" v-on:click.prevent="onSubmit()" variant="primary" v-if="submit">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form-group>
   </b-form>
@@ -83,35 +83,40 @@ export default {
     }
   },
   beforeMount () {
-    fetch('https://hidden-crag-31172.herokuapp.com/courses', {credentials: 'include'})
-    .then(response => response.json())
-    .then(json => {
-      console.log(json)
-      this.allCourses = json
-      for (var i = 0; i < Object.keys(json).length; i++) {
-        console.log(json[i].c_name)
-        this.course_options.push({value: json[i]._id, text: json[i].c_name})
-      }
-    })
+    setTimeout(() => {
+      fetch('https://hidden-crag-31172.herokuapp.com/courses', {credentials: 'include'})
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+        this.allCourses = json
+        for (var i = 0; i < Object.keys(json).length; i++) {
+          console.log(json[i].c_name)
+          this.course_options.push({value: json[i]._id, text: json[i].c_name})
+        }
+      })
+    }, 500)
   },
   methods: {
-    onSubmit (evt) {
-      evt.preventDefault()
-      console.log(this.choosenCourse)
+    onSubmit () {
+      console.log(this.cls_name)
       fetch('https://hidden-crag-31172.herokuapp.com/courses/' + this.choosenCourse + '/lessons', {
         method: 'POST', // or 'PUT'
+        mode: 'cors',
         body: {
           'cls_name': this.cls_name,
           'cls_content': this.cls_content,
           'cls_url': this.cls_url,
           'cls_img': this.cls_img
         },
-        credentials: 'include'
+        credentials: 'include',
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
       }).then(res => res.json())
       .catch(error => console.error('Error:', error))
       .then(response => {
         console.log('Success:', response)
-        window.location.replace('../')
+        // window.location.replace('../')
       })
     },
     onReset (evt) {
