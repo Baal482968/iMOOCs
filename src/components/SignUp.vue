@@ -92,7 +92,7 @@ export default {
       .catch(error => console.error('Error:', error))
       .then(response => {
         console.log('Success:', response)
-        window.location.replace('../')
+        window.location.replace('../login')
       })
     }
   }
