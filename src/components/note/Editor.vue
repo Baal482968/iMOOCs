@@ -15,6 +15,14 @@
       </b-form-textarea>
     </div>
     <div>
+      <b-form-group label="Score">
+        <b-form-radio-group v-model="score"
+                            :options="scoreOptions"
+                            name="radioInline">
+        </b-form-radio-group>
+      </b-form-group>
+    </div>
+    <div>
       <b-button size="lg" variant="primary" v-on:click="noteSubmit">Submit</b-button>
     </div>
   </div>
@@ -41,7 +49,15 @@ export default {
         { value: {'C': '3PO'}, text: 'Feedback' },
         { value: 'd', text: 'Other reason', disabled: false }
       ],
-      text: ''
+      text: '',
+      score: '',
+      scoreOptions: [
+        { text: '5', value: 5 },
+        { text: '4', value: 4 },
+        { text: '3', value: 3 },
+        { text: '2', value: 2 },
+        { text: '1', value: 1 }
+      ]
     }
   },
   methods: {
